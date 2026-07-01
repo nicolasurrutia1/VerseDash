@@ -1,0 +1,20 @@
+{
+  "name": "verse-dash",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "dev:web": "pnpm --filter @verse-dash/web dev",
+    "dev:api": "pnpm --filter @verse-dash/api start:dev"
+  },
+  "devDependencies": {
+    "turbo": "^2.9.18",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=20"
+  }
+}
