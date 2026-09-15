@@ -11,5 +11,11 @@ export const CreatePlayerSchema = z.object({
   nickname: NicknameSchema,
 });
 
+export const PlayerResponseSchema = z.object({
+  id: z.string(),
+  nickname: z.string(),
+});
+
 export type Nickname = z.infer<typeof NicknameSchema>;
 export type CreatePlayer = z.infer<typeof CreatePlayerSchema>;
+export type PlayerResponse = z.infer<typeof PlayerResponseSchema>;

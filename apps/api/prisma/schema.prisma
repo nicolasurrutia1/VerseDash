@@ -40,13 +40,14 @@ model Question {
 }
 
 model Game {
-  id         String       @id @default(cuid())
-  playerId   String       @map("player_id")
-  score      Int          @default(0)
-  startedAt  DateTime     @default(now()) @map("started_at")
-  finishedAt DateTime?    @map("finished_at")
-  player     Player       @relation(fields: [playerId], references: [id], onDelete: Cascade)
-  answers    GameAnswer[]
+  id          String       @id @default(cuid())
+  playerId    String       @map("player_id")
+  questionIds String[]     @map("question_ids")
+  score       Int          @default(0)
+  startedAt   DateTime     @default(now()) @map("started_at")
+  finishedAt  DateTime?    @map("finished_at")
+  player      Player       @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  answers     GameAnswer[]
 
   @@index([score])
   @@map("games")
