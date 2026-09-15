@@ -7,10 +7,62 @@ datasource db {
   provider = "postgresql"
 }
 
+enum OptionLetter {
+  A
+  B
+  C
+  D
+}
+
 model Player {
   id        String   @id @default(cuid())
   nickname  String   @unique
   createdAt DateTime @default(now()) @map("created_at")
+  games     Game[]
 
   @@map("players")
+}
+
+model Question {
+  id            String       @id @default(cuid())
+  text          String
+  reference     String
+  optionA       String       @map("option_a")
+  optionB       String       @map("option_b")
+  optionC       String       @map("option_c")
+  optionD       String       @map("option_d")
+  correctOption OptionLetter @map("correct_option")
+  createdAt     DateTime     @default(now()) @map("created_at")
+  answers       GameAnswer[]
+
+  @@unique([text])
+  @@map("questions")
+}
+
+model Game {
+  id         String       @id @default(cuid())
+  playerId   String       @map("player_id")
+  score      Int          @default(0)
+  startedAt  DateTime     @default(now()) @map("started_at")
+  finishedAt DateTime?    @map("finished_at")
+  player     Player       @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  answers    GameAnswer[]
+
+  @@index([score])
+  @@map("games")
+}
+
+model GameAnswer {
+  id             String       @id @default(cuid())
+  gameId         String       @map("game_id")
+  questionId     String       @map("question_id")
+  selectedOption OptionLetter @map("selected_option")
+  elapsedMs      Int          @map("elapsed_ms")
+  isCorrect      Boolean      @map("is_correct")
+  pointsEarned   Int          @map("points_earned")
+  game           Game         @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  question       Question     @relation(fields: [questionId], references: [id])
+
+  @@unique([gameId, questionId])
+  @@map("game_answers")
 }
