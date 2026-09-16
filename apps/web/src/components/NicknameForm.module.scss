@@ -1,0 +1,108 @@
+@use "../styles/tokens" as *;
+
+.card {
+  background: $ink-elevated;
+  border: 1px solid rgba($gold, 0.25);
+  border-radius: $radius-lg;
+  padding: $space-xl $space-lg;
+  box-shadow: $shadow-card;
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.intro h2 {
+  font-family: $font-display;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: $parchment;
+}
+
+.intro p {
+  color: $parchment-muted;
+  font-size: 0.95rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $parchment-muted;
+  letter-spacing: 0.02em;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: $radius-md;
+  border: 1px solid rgba($parchment, 0.2);
+  background: rgba($ink, 0.6);
+  color: $parchment;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &::placeholder {
+    color: rgba($parchment-muted, 0.7);
+  }
+
+  &:focus {
+    border-color: $gold;
+    box-shadow: 0 0 0 3px rgba($gold, 0.2);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: rgba($parchment-muted, 0.85);
+}
+
+.error {
+  color: $danger;
+  font-size: 0.875rem;
+}
+
+.submit {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  border: none;
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, $gold-bright 0%, $gold 100%);
+  color: $ink;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    filter 0.12s ease;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}

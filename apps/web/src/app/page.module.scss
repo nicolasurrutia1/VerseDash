@@ -1,0 +1,46 @@
+@use "../styles/tokens" as *;
+
+.page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $space-lg;
+  width: 100%;
+}
+
+.shell {
+  width: 100%;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.brand {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.brand h1 {
+  font-family: $font-display;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $gold-bright;
+  line-height: 1.1;
+}
+
+.brand p {
+  color: $parchment-muted;
+  font-size: 1.05rem;
+}
+
+.loading {
+  text-align: center;
+  color: $parchment-muted;
+  padding: $space-xl;
+}
