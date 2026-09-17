@@ -4,7 +4,7 @@ import { useState, type FormEvent } from 'react';
 import { Label } from 'radix-ui';
 import { NicknameSchema, type PlayerResponse, type StartGameResponse } from '@verse-dash/shared';
 import { createPlayer, startGame } from '@/lib/api';
-import { saveSession, type GameSession } from '@/lib/session';
+import { newSession, saveSession, type GameSession } from '@/lib/session';
 import styles from './NicknameForm.module.scss';
 
 type NicknameFormProps = {
@@ -48,7 +48,7 @@ export function NicknameForm({ onStarted }: NicknameFormProps) {
     try {
       const player: PlayerResponse = await createPlayer(parsed.data);
       const game: StartGameResponse = await startGame(player.id);
-      const session = { player, game };
+      const session = newSession(player, game);
       saveSession(session);
       onStarted(session);
     } catch (err) {

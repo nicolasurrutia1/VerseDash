@@ -1,0 +1,227 @@
+@use "../styles/tokens" as *;
+
+.card {
+  background: $ink-elevated;
+  border: 1px solid rgba($gold, 0.25);
+  border-radius: $radius-lg;
+  padding: $space-xl $space-lg;
+  box-shadow: $shadow-card;
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-sm;
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba($gold, 0.15);
+  color: $gold-bright;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.score {
+  font-family: $font-display;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $parchment;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+}
+
+.track {
+  flex: 1;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: rgba($parchment, 0.12);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, $gold 0%, $gold-bright 100%);
+  transition: width 0.1s linear;
+}
+
+.urgent {
+  background: linear-gradient(90deg, rgba($danger, 0.75) 0%, $danger 100%);
+}
+
+.clock {
+  font-family: $font-display;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $parchment-muted;
+  min-width: 2.75rem;
+  text-align: right;
+}
+
+.urgentText {
+  color: $danger;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.ref {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: $gold;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.question h2 {
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $parchment;
+  line-height: 1.3;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.option {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: $space-sm;
+  padding: $space-md;
+  border-radius: $radius-md;
+  background: rgba($ink, 0.5);
+  border: 1px solid rgba($parchment, 0.12);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+
+  &:hover {
+    border-color: rgba($gold, 0.6);
+  }
+}
+
+.option.selected {
+  border-color: $gold;
+  background: rgba($gold, 0.1);
+}
+
+.radio {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  border: 1px solid rgba($parchment, 0.4);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &[data-state="checked"] {
+    border-color: $gold-bright;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $gold;
+    outline-offset: 2px;
+  }
+}
+
+.indicator {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: $gold-bright;
+}
+
+.letter {
+  font-family: $font-display;
+  font-weight: 700;
+  color: $gold;
+}
+
+.text {
+  color: $parchment;
+  font-size: 0.95rem;
+}
+
+.option.correct {
+  border-color: $success;
+  background: rgba($success, 0.15);
+  cursor: default;
+}
+
+.option.incorrect {
+  border-color: $danger;
+  background: rgba($danger, 0.15);
+  cursor: default;
+}
+
+.option.dimmed {
+  border-color: rgba($parchment, 0.12);
+  opacity: 0.55;
+  cursor: default;
+}
+
+.feedback {
+  font-weight: 600;
+  text-align: center;
+}
+
+.feedbackOk {
+  color: $success;
+}
+
+.feedbackBad {
+  color: $danger;
+}
+
+.error {
+  color: $danger;
+  font-size: 0.875rem;
+}
+
+.primary {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  border: none;
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, $gold-bright 0%, $gold 100%);
+  color: $ink;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    filter 0.12s ease;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
