@@ -167,7 +167,6 @@ export function QuizRound({ session, onSessionChange }: QuizRoundProps) {
       </div>
 
       <div className={styles.question}>
-        <p className={styles.ref}>{question.reference}</p>
         <h2>{question.text}</h2>
       </div>
 
@@ -198,16 +197,18 @@ export function QuizRound({ session, onSessionChange }: QuizRoundProps) {
       </RadioGroup.Root>
 
       {result ? (
-        <p
-          className={`${styles.feedback} ${result.isCorrect ? styles.feedbackOk : styles.feedbackBad}`}
-          role="status"
-        >
-          {result.isCorrect
-            ? `¡Correcto! +${result.pointsEarned} pts`
-            : timedOut
-              ? 'Se acabó el tiempo. +0 pts'
-              : 'Incorrecto. +0 pts'}
-        </p>
+        <div role="status">
+          <p
+            className={`${styles.feedback} ${result.isCorrect ? styles.feedbackOk : styles.feedbackBad}`}
+          >
+            {result.isCorrect
+              ? `¡Correcto! +${result.pointsEarned} pts`
+              : timedOut
+                ? 'Se acabó el tiempo. +0 pts'
+                : 'Incorrecto. +0 pts'}
+          </p>
+          <p className={styles.ref}>{question.reference}</p>
+        </div>
       ) : null}
 
       {error ? (

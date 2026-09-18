@@ -102,13 +102,13 @@ const questions: SeedQuestion[] = [
     correctOption: 'B',
   },
   {
-    text: '¿En qué libro aparece el Salmo 23: "Jehová es mi pastor"?',
+    text: '¿Cómo sigue la frase: "Jehová es mi pastor..."?',
     reference: 'Salmos 23:1',
-    optionA: 'Proverbios',
-    optionB: 'Salmos',
-    optionC: 'Eclesiastés',
-    optionD: 'Isaías',
-    correctOption: 'B',
+    optionA: 'nada me faltará',
+    optionB: 'en Él confiaré',
+    optionC: 'Él me fortalece',
+    optionD: 'su misericordia es eterna',
+    correctOption: 'A',
   },
   {
     text: '¿Quién interpretó los sueños del faraón en Egipto?',
@@ -147,12 +147,12 @@ const questions: SeedQuestion[] = [
     correctOption: 'C',
   },
   {
-    text: '¿Cuál es el versículo: "Porque de tal manera amó Dios al mundo..."?',
+    text: 'Según Juan, ¿qué dio Dios para que todo aquel que en Él cree no se pierda?',
     reference: 'Juan 3:16',
-    optionA: 'Juan 1:1',
-    optionB: 'Juan 3:16',
-    optionC: 'Romanos 8:28',
-    optionD: 'Mateo 5:14',
+    optionA: 'La ley',
+    optionB: 'A su Hijo unigénito',
+    optionC: 'Los profetas',
+    optionD: 'El templo',
     correctOption: 'B',
   },
   {
@@ -300,7 +300,7 @@ const questions: SeedQuestion[] = [
     correctOption: 'B',
   },
   {
-    text: '¿En qué animal metieron a José sus hermanos?',
+    text: '¿Dónde metieron a José sus hermanos?',
     reference: 'Génesis 37:24',
     optionA: 'Una cueva',
     optionB: 'Una cárcel',
@@ -552,12 +552,12 @@ const questions: SeedQuestion[] = [
     correctOption: 'B',
   },
   {
-    text: '¿Cuál es el versículo: "El Señor es mi luz y mi salvación"?',
+    text: 'En el Salmo 27, ¿cómo describe David al Señor?',
     reference: 'Salmos 27:1',
-    optionA: 'Salmos 23:1',
-    optionB: 'Salmos 1:1',
-    optionC: 'Salmos 27:1',
-    optionD: 'Salmos 100:1',
+    optionA: 'Mi escudo y mi torre',
+    optionB: 'Mi roca y mi fortaleza',
+    optionC: 'Mi luz y mi salvación',
+    optionD: 'Mi pastor y mi guía',
     correctOption: 'C',
   },
   {
@@ -930,30 +930,30 @@ const questions: SeedQuestion[] = [
     correctOption: 'D',
   },
   {
-    text: '¿Cuál es el versículo: "Todas las cosas cooperan para bien"?',
+    text: 'Según Romanos, ¿para quiénes todas las cosas ayudan a bien?',
     reference: 'Romanos 8:28',
-    optionA: 'Romanos 8:28',
-    optionB: 'Juan 3:16',
-    optionC: 'Filipenses 4:13',
-    optionD: 'Salmos 23:1',
+    optionA: 'Los que aman a Dios',
+    optionB: 'Los fariseos',
+    optionC: 'Solo los apóstoles',
+    optionD: 'Los ricos',
     correctOption: 'A',
   },
   {
-    text: '¿Cuál es el versículo: "Todo lo puedo en Cristo que me fortalece"?',
+    text: '¿Quién dijo: "Todo lo puedo en Cristo que me fortalece"?',
     reference: 'Filipenses 4:13',
-    optionA: 'Efesios 2:8',
-    optionB: 'Filipenses 4:13',
-    optionC: 'Gálatas 2:20',
-    optionD: 'Colosenses 3:2',
+    optionA: 'Pedro',
+    optionB: 'Pablo',
+    optionC: 'Juan',
+    optionD: 'Santiago',
     correctOption: 'B',
   },
   {
-    text: '¿Cuál es el versículo: "Por gracia sois salvos por medio de la fe"?',
+    text: 'Según Efesios, ¿por qué medio somos salvos?',
     reference: 'Efesios 2:8',
-    optionA: 'Romanos 3:23',
-    optionB: 'Tito 3:5',
-    optionC: 'Efesios 2:8',
-    optionD: 'Hebreos 11:1',
+    optionA: 'Por las obras de la ley',
+    optionB: 'Por ofrendas',
+    optionC: 'Por gracia, mediante la fe',
+    optionD: 'Por el bautismo solo',
     correctOption: 'C',
   },
   {
@@ -1111,14 +1111,113 @@ const questions: SeedQuestion[] = [
   },
 ];
 
+/** Textos viejos que spoileaban; se actualizan en DB antes del createMany. */
+const questionRewrites: { oldText: string; question: SeedQuestion }[] = [
+  {
+    oldText: '¿En qué libro aparece el Salmo 23: "Jehová es mi pastor"?',
+    question: {
+      text: '¿Cómo sigue la frase: "Jehová es mi pastor..."?',
+      reference: 'Salmos 23:1',
+      optionA: 'nada me faltará',
+      optionB: 'en Él confiaré',
+      optionC: 'Él me fortalece',
+      optionD: 'su misericordia es eterna',
+      correctOption: 'A',
+    },
+  },
+  {
+    oldText: '¿Cuál es el versículo: "Porque de tal manera amó Dios al mundo..."?',
+    question: {
+      text: 'Según Juan, ¿qué dio Dios para que todo aquel que en Él cree no se pierda?',
+      reference: 'Juan 3:16',
+      optionA: 'La ley',
+      optionB: 'A su Hijo unigénito',
+      optionC: 'Los profetas',
+      optionD: 'El templo',
+      correctOption: 'B',
+    },
+  },
+  {
+    oldText: '¿En qué animal metieron a José sus hermanos?',
+    question: {
+      text: '¿Dónde metieron a José sus hermanos?',
+      reference: 'Génesis 37:24',
+      optionA: 'Una cueva',
+      optionB: 'Una cárcel',
+      optionC: 'Una cisterna',
+      optionD: 'Una casa',
+      correctOption: 'C',
+    },
+  },
+  {
+    oldText: '¿Cuál es el versículo: "El Señor es mi luz y mi salvación"?',
+    question: {
+      text: 'En el Salmo 27, ¿cómo describe David al Señor?',
+      reference: 'Salmos 27:1',
+      optionA: 'Mi escudo y mi torre',
+      optionB: 'Mi roca y mi fortaleza',
+      optionC: 'Mi luz y mi salvación',
+      optionD: 'Mi pastor y mi guía',
+      correctOption: 'C',
+    },
+  },
+  {
+    oldText: '¿Cuál es el versículo: "Todas las cosas cooperan para bien"?',
+    question: {
+      text: 'Según Romanos, ¿para quiénes todas las cosas ayudan a bien?',
+      reference: 'Romanos 8:28',
+      optionA: 'Los que aman a Dios',
+      optionB: 'Los fariseos',
+      optionC: 'Solo los apóstoles',
+      optionD: 'Los ricos',
+      correctOption: 'A',
+    },
+  },
+  {
+    oldText: '¿Cuál es el versículo: "Todo lo puedo en Cristo que me fortalece"?',
+    question: {
+      text: '¿Quién dijo: "Todo lo puedo en Cristo que me fortalece"?',
+      reference: 'Filipenses 4:13',
+      optionA: 'Pedro',
+      optionB: 'Pablo',
+      optionC: 'Juan',
+      optionD: 'Santiago',
+      correctOption: 'B',
+    },
+  },
+  {
+    oldText: '¿Cuál es el versículo: "Por gracia sois salvos por medio de la fe"?',
+    question: {
+      text: 'Según Efesios, ¿por qué medio somos salvos?',
+      reference: 'Efesios 2:8',
+      optionA: 'Por las obras de la ley',
+      optionB: 'Por ofrendas',
+      optionC: 'Por gracia, mediante la fe',
+      optionD: 'Por el bautismo solo',
+      correctOption: 'C',
+    },
+  },
+];
+
 async function main() {
+  let rewritten = 0;
+  for (const { oldText, question } of questionRewrites) {
+    const result = await prisma.question.updateMany({
+      where: { text: oldText },
+      data: question,
+    });
+    rewritten += result.count;
+  }
+
   const result = await prisma.question.createMany({
     data: questions,
     skipDuplicates: true,
   });
 
   const total = await prisma.question.count();
-  console.log(`Seed OK: inserted ${result.count}, total questions: ${total}`);
+  console.log(
+    `Seed OK: rewritten ${rewritten}, inserted ${result.count}, total questions: ${total}`,
+  );
 }
 
 main()
